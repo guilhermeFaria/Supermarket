@@ -29,7 +29,7 @@ public class SupermarketWebApplicationInitializer extends AbstractAnnotationConf
 	protected String[] getServletMappings() {
 		return new String[] {"/"};
 	}
-	
+
 	@Override
     protected Filter[] getServletFilters() {
         final CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();

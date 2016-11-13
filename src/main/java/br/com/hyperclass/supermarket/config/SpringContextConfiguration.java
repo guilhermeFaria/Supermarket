@@ -42,9 +42,9 @@ public class SpringContextConfiguration {
 	}
 	
 	public void loadStock(final Stock stock) {
-		stock.addProduct(new Product("333372", "bombom especialidades nestle caixa 300g", new BigDecimal(7.90), " informação qualquer"), 30);
-		stock.addProduct(new Product("327510", "vodka sueca absolut garrafa 1 litro", new BigDecimal(93.00), "informação qualquer"), 30);
-		stock.addProduct(new Product("322383", "cafe torrado e moido tradicional melitta pacote 500g", new BigDecimal(12.25), "informação qualquer"), 50);
+		stock.addProductInStock(new Product("333372", "bombom especialidades nestle caixa 300g", new BigDecimal(7.90), " informação qualquer"), 30);
+		stock.addProductInStock(new Product("327510", "vodka sueca absolut garrafa 1 litro", new BigDecimal(93.00), "informação qualquer"), 30);
+		stock.addProductInStock(new Product("322383", "cafe torrado e moido tradicional melitta pacote 500g", new BigDecimal(12.25), "informação qualquer"), 50);
 
 	}
 	

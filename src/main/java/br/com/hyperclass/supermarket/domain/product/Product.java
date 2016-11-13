@@ -9,6 +9,7 @@ import java.math.BigDecimal;
  *
  * @version 1.0.0 11/10/2016
  */
+
 public class Product implements Comparable<Product> {
 	private final String barCode;
 	private final String nameProduct;

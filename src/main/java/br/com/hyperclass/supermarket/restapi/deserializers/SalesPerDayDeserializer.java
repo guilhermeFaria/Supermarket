@@ -28,7 +28,6 @@ import br.com.hyperclass.supermarket.restapi.wrapper.SalesPerDayWrapper;
  */
 public class SalesPerDayDeserializer extends JsonDeserializer<SalesPerDayWrapper>{
 
-
 	@Override
 	public SalesPerDayWrapper deserialize(final JsonParser jsonParser, final DeserializationContext ctxt)
 			throws IOException, JsonProcessingException {

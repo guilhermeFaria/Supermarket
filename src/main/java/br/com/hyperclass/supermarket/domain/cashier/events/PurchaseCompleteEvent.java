@@ -8,7 +8,7 @@
 package br.com.hyperclass.supermarket.domain.cashier.events;
 
 import java.math.BigDecimal;
-import java.util.Map;
+import java.util.List;
 
 import br.com.hyperclass.supermarket.domain.cashier.PaymentMethod;
 import br.com.hyperclass.supermarket.domain.product.Product;
@@ -25,7 +25,7 @@ public class PurchaseCompleteEvent extends EventsSales {
 
 	private static final long serialVersionUID = 1L;
 
-	public PurchaseCompleteEvent(final Map<Product, Integer> products, final BigDecimal purchasePrice, final PaymentMethod paymentMethod) {
-		super(new ContextSales(products, purchasePrice, paymentMethod));
+	public PurchaseCompleteEvent(final List<Product> products, final BigDecimal purchasePrice, final PaymentMethod paymentMethod) {
+		super(new ContextEventSales(products, purchasePrice, paymentMethod));
 	}
 }

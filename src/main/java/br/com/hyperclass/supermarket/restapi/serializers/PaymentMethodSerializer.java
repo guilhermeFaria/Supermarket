@@ -27,6 +27,7 @@ import br.com.hyperclass.supermarket.restapi.wrapper.PaymentMethodWrapper;
 
 public class PaymentMethodSerializer extends JsonSerializer<PaymentMethodWrapper> {
 
+	
 	@Override
 	public void serialize(final PaymentMethodWrapper paymentMethodWrapper, final JsonGenerator generator, final SerializerProvider serializer)
 			throws IOException, JsonProcessingException {

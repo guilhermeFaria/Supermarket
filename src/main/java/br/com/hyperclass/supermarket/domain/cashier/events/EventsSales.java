@@ -11,7 +11,7 @@ package br.com.hyperclass.supermarket.domain.cashier.events;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.EventObject;
-import java.util.Map;
+import java.util.List;
 
 import br.com.hyperclass.supermarket.domain.cashier.PaymentMethod;
 import br.com.hyperclass.supermarket.domain.product.Product;
@@ -27,11 +27,11 @@ public class EventsSales extends EventObject implements Comparable<EventsSales> 
 	
 	private static final long serialVersionUID = 1L;
 	
-	public EventsSales(final ContextSales context) {
+	public EventsSales(final ContextEventSales context) {
 		super(context);
 	}
 	
-	public Map<Product, Integer> getProducts() {
+	public List<Product> getProducts() {
     	return getSource().getProducts();
     }
     
@@ -53,7 +53,7 @@ public class EventsSales extends EventObject implements Comparable<EventsSales> 
 	}
 	 
 	@Override
-	public ContextSales getSource() {
-		return (ContextSales) super.getSource();
+	public ContextEventSales getSource() {
+		return (ContextEventSales) super.getSource();
 	}
 }

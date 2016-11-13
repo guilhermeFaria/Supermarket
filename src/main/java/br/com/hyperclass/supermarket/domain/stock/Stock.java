@@ -9,9 +9,7 @@ package br.com.hyperclass.supermarket.domain.stock;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import br.com.hyperclass.supermarket.domain.product.Product;
 
@@ -30,6 +28,7 @@ public class Stock {
 	private final List<Product> productsInStock = new ArrayList<>();
 	
 	/**
+	 * Metodo que acrescenta um novo produto ao estoque
 	 * 
 	 * @param product
 	 * @param quantity
@@ -37,7 +36,13 @@ public class Stock {
 	public void addProductInStock(final Product product, final int quantity) {
 		productsInStock.addAll(loadingProductInList(product, quantity));
 	}
-
+	
+	/**
+	 * Metodo que efetua a remoção do produto informado no estoque
+	 * @param product
+	 * @param quantity
+	 * @throws SupermarketException
+	 */
 	public void removeProductOfStock(final Product product, final int quantity) throws SupermarketException {
 		int cont = 0;
 		if (productsInStock.contains(product)) {
@@ -54,6 +59,14 @@ public class Stock {
 		}
 	}
 
+	/**
+	 * É verificado se o produto informado contem no estoque.
+	 * 
+	 * @param product
+	 * @param quantity
+	 * @return
+	 * @throws SupermarketException
+	 */
 	public Boolean containsProduct(final Product product, final int quantity) throws SupermarketException {
 		int cont = 0;
 		for (Product productEntry : productsInStock) {
@@ -69,6 +82,11 @@ public class Stock {
 
 	}
 
+	/**
+	 * Retorna uma lista de produtos que tem disponivel no estoque.
+	 * 
+	 * @return
+	 */
 	public List<Product> showProductsOfStock() {
 		return Collections.unmodifiableList(productsInStock);
 	}
@@ -98,6 +116,14 @@ public class Stock {
 		return true;
 	}
 
+	/**
+	 * Metodo responsavel por retornar uma lista populada de 
+	 * produtos de acordo com a quantidade informada
+	 * 
+	 * @param product
+	 * @param quantity
+	 * @return
+	 */
 	private List<Product> loadingProductInList(final Product product, final int quantity) {
 		final List<Product> productsList = new ArrayList<Product>(quantity);
 		for (int cont = 0; cont < quantity; cont++) {

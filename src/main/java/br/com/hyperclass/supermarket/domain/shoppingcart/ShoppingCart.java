@@ -35,6 +35,11 @@ public class ShoppingCart {
 		productsInCart = new ArrayList<>();
 	}
 	
+	/**
+	 * Metodo que retorna o valor atual do carrinho de compra.
+	 * 
+	 * @return 
+	 */
 	public final BigDecimal currentPurchasePrice() {
 		BigDecimal valueFinal = BigDecimal.ZERO;
 		for (Product product : productsInCart) {
@@ -43,6 +48,14 @@ public class ShoppingCart {
 		return valueFinal;
 	}
 
+	/**
+	 * Metodo que acrescenta um novo produto ao carrinho de compras
+	 * e retira do estoque com base na quantidade
+	 * 
+	 * @param product
+	 * @param quantity
+	 * @throws SupermarketException
+	 */
 	public void addProductInCart(final Product product, final int quantity) throws SupermarketException {
 		if (stock.containsProduct(product, quantity)) {
 			productsInCart.addAll(loadingProduct(product, quantity));
@@ -51,10 +64,14 @@ public class ShoppingCart {
 		
 	}
 	
-	public void closeCart() {
-		productsInCart.clear();
-	}
-
+	/**
+	 * Efetua a remoção do produto informado no carrinho de compras e 
+	 * devolve ao estoque
+	 * 
+	 * @param product
+	 * @param quantity
+	 * @throws SupermarketException
+	 */
 	public void removeProductInCart(final Product product, final int quantity) throws SupermarketException {
 		int cont = 0;
 		if (productsInCart.contains(product)) {
@@ -70,10 +87,23 @@ public class ShoppingCart {
 		stock.addProductInStock(product, quantity);
 	}
 
+	/**
+	 * Retorna a lista de produtos dentro do carrinho de compras
+	 * 
+	 * @return
+	 */
 	public final List<Product> shoppingList() {
 		return Collections.unmodifiableList(productsInCart);
 	}
 	
+	/**
+	 * Metodo responsavel por retornar uma lista populada de 
+	 * produtos de acordo com a quantidade informada
+	 * 
+	 * @param product
+	 * @param quantity
+	 * @return
+	 */
 	private final List<Product> loadingProduct(final Product product, final int quantity) {
 		List<Product> productsList = new ArrayList<Product>(quantity);
 		

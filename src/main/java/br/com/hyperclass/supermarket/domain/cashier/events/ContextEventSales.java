@@ -10,8 +10,8 @@ package br.com.hyperclass.supermarket.domain.cashier.events;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.hyperclass.supermarket.domain.cashier.PaymentMethod;
 import br.com.hyperclass.supermarket.domain.product.Product;
@@ -23,22 +23,22 @@ import br.com.hyperclass.supermarket.domain.product.Product;
  *
  * @version 1.0.0 21 de out de 2016
  */
-public class ContextSales {
+public class ContextEventSales {
 	
-	private final Map<Product, Integer> products = new TreeMap<Product, Integer>();
+	private final List<Product> products = new ArrayList<>();
     private final LocalDate date;
     private final BigDecimal value;
     private final PaymentMethod paymentMethod;
     private final DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public ContextSales(final Map<Product, Integer> products, final BigDecimal purchasePrice, final PaymentMethod paymentMethod) {
+    public ContextEventSales(final List<Product> products, final BigDecimal purchasePrice, final PaymentMethod paymentMethod) {
         this.date = LocalDate.now();
         date.format(timeFormat);
         this.value = purchasePrice;
         this.paymentMethod = paymentMethod;
     }
     
-    public Map<Product, Integer> getProducts() {
+    public List<Product> getProducts() {
     	return products;
     }
     
